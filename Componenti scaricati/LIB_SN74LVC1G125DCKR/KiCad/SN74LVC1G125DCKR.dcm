@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP SN74LVC1G125DCKR
+D SN74LVC1G125DCKR, 1-Bit Buffer, Line Driver, LVC, 3-State Non-Inverting 1.65 to 5.5V 5-Pin SC-70
+K
+F https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-302/24053.pdf
+$ENDCMP
+#
+#End Doc Library

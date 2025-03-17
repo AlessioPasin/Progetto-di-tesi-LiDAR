@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TLV74133PDBVR
+D 150mA Low-Dropout (LDO) Regulator With Foldback Current Limit for Portable Devices
+K
+F http://www.ti.com/lit/gpn/tlv741p
+$ENDCMP
+#
+#End Doc Library

@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP SiT2024BA-S2-33E-8.000000G
+D Standard Clock Oscillators 8MHz 3.3V -40C +125C AEC-Q100
+K
+F https://www.mouser.it/datasheet/2/371/SiT2024B-datasheet-1110818.pdf
+$ENDCMP
+#
+#End Doc Library
