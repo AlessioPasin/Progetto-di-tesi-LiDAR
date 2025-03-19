@@ -1,4 +1,0 @@
-(fp_lib_table
-  (lib (name "arduino-library")(type "KiCad")(uri "${KIPRJMOD}/Componenti scaricati/arduino-kicad-library-master/footprints/arduino-library.pretty")(options "")(descr ""))
-  (lib (name "Libreria_componenti_footprint")(type "KiCad")(uri "${KIPRJMOD}/Libreria_componenti_footprint.pretty")(options "")(descr ""))
-)
