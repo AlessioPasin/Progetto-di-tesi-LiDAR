@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LT1719IS6#TRPBF
+D Analog Comparators 4.5ns 1x/2x S 3V/5V Comp w/ R2R Out
+K
+F https://www.analog.com/media/en/technical-documentation/data-sheets/1719fa.pdf
+$ENDCMP
+#
+#End Doc Library
