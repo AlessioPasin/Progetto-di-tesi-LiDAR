@@ -5075,8 +5075,8 @@
   (symbol (lib_id "Connector:Conn_Coaxial") (at 277.495 173.355 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 91567851-a6e7-4c18-9c1d-beb92ecb179c)
-    (property "Reference" "J2" (id 0) (at 277.1776 166.37 0))
-    (property "Value" "Conn_Coaxial" (id 1) (at 277.1776 168.91 0))
+    (property "Reference" "J2" (id 0) (at 277.8124 166.37 0))
+    (property "Value" "CONN_RICEVITORE" (id 1) (at 277.8124 168.91 0))
     (property "Footprint" "Connector_Coaxial:SMA_Molex_73251-1153_EdgeMount_Horizontal" (id 2) (at 277.495 173.355 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -5470,7 +5470,7 @@
     (property "Reference" "JP2" (id 0) (at 363.855 223.5199 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "SolderJumper_3_Open" (id 1) (at 363.855 226.0599 90)
+    (property "Value" "LDO_EN" (id 1) (at 363.855 226.0599 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels" (id 2) (at 366.395 224.79 0)
@@ -5900,7 +5900,7 @@
       (reference "J1") (unit 1) (value "CONN_LASER") (footprint "Connector_Coaxial:SMA_Molex_73251-1153_EdgeMount_Horizontal")
     )
     (path "/91567851-a6e7-4c18-9c1d-beb92ecb179c"
-      (reference "J2") (unit 1) (value "Conn_Coaxial") (footprint "Connector_Coaxial:SMA_Molex_73251-1153_EdgeMount_Horizontal")
+      (reference "J2") (unit 1) (value "CONN_RICEVITORE") (footprint "Connector_Coaxial:SMA_Molex_73251-1153_EdgeMount_Horizontal")
     )
     (path "/eba42262-809f-463f-9f17-44704f171493"
       (reference "J3") (unit 1) (value "Conn_02x18_Odd_Even") (footprint "Connector_PinSocket_2.54mm:PinSocket_2x18_P2.54mm_Vertical")
@@ -5930,7 +5930,7 @@
       (reference "JP1") (unit 1) (value "REG_EN") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm")
     )
     (path "/daf39426-ed50-4711-8fa2-fa5fc345f9a3"
-      (reference "JP2") (unit 1) (value "SolderJumper_3_Open") (footprint "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels")
+      (reference "JP2") (unit 1) (value "LDO_EN") (footprint "Jumper:SolderJumper-3_P1.3mm_Open_Pad1.0x1.5mm_NumberLabels")
     )
     (path "/db1799f5-1bfc-4a07-910b-5e385634249d"
       (reference "JP3") (unit 1) (value "OSC_EN") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm")
