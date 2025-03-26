@@ -3437,7 +3437,7 @@
     (uuid 0349f0df-9131-41a6-bac8-96ffcc784abe)
   )
   (text "-5V) (5-1.8)/0.002= 1600 -> 1k8\n\n-3V3)  (3.3-1.8)/0.002=750 -> 820"
-    (at 255.905 262.89 0)
+    (at 255.905 263.525 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 09409fa7-e49f-4589-b12b-ec372c792c06)
   )
@@ -4441,7 +4441,7 @@
   (symbol (lib_id "Libreria_componenti:LT1719IS6#TRPBF") (at 321.31 175.26 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 1f41963f-b620-49ed-9e39-222e710c0a60)
-    (property "Reference" "IC2" (id 0) (at 335.28 168.275 0))
+    (property "Reference" "IC_4" (id 0) (at 335.28 168.275 0))
     (property "Value" "LT1719IS6#TRPBF" (id 1) (at 335.28 170.815 0))
     (property "Footprint" "Libreria_componenti_footprint:SOT95P280X100-6N" (id 2) (at 321.31 175.26 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -4505,12 +4505,12 @@
   )
 
   (symbol (lib_id "arduino-library:Arduino_Due_Shield") (at 128.27 88.9 180) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom yes) (on_board yes)
     (uuid 2e4e510e-4a1a-4b96-8e55-c9f0bcdfd785)
-    (property "Reference" "A1" (id 0) (at 128.27 152.4 0)
+    (property "Reference" "IC_0" (id 0) (at 128.27 88.9 0)
       (effects (font (size 1.524 1.524)))
     )
-    (property "Value" "Arduino_Due_Shield" (id 1) (at 128.27 148.59 0)
+    (property "Value" "Arduino_Due_Shield" (id 1) (at 128.27 94.615 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Footprint" "arduino-library:Arduino_Due_Shield" (id 2) (at 128.27 162.56 0)
@@ -4690,7 +4690,7 @@
     (property "Reference" "D1" (id 0) (at 292.735 238.125 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "5V_LED" (id 1) (at 292.735 240.665 90)
+    (property "Value" "5V" (id 1) (at 292.735 240.665 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "LED_SMD:LED_0805_2012Metric" (id 2) (at 288.925 239.395 0)
@@ -4994,7 +4994,7 @@
   (symbol (lib_id "Libreria_componenti:TLV74133PDBVR") (at 317.5 229.235 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 80c739b2-bfd7-4196-b999-8fa7f79fdf43)
-    (property "Reference" "IC1" (id 0) (at 330.2 220.98 0))
+    (property "Reference" "IC_5" (id 0) (at 330.2 220.98 0))
     (property "Value" "TLV74133PDBVR" (id 1) (at 330.2 223.52 0))
     (property "Footprint" "Libreria_componenti_footprint:SOT95P280X145-5N" (id 2) (at 327.66 239.395 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -5093,7 +5093,7 @@
     (property "Reference" "D2" (id 0) (at 377.19 237.1724 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "3V3_LED" (id 1) (at 377.19 239.7124 90)
+    (property "Value" "3V3" (id 1) (at 377.19 239.7124 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "LED_SMD:LED_0805_2012Metric" (id 2) (at 373.38 236.855 0)
@@ -5348,7 +5348,7 @@
   (symbol (lib_id "Libreria_componenti:SiT2024BA-S2-33E-8.000000G") (at 316.865 81.915 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid c6b204f7-0037-47cd-baa9-5dbf5fe1ca64)
-    (property "Reference" "Y1" (id 0) (at 330.835 74.295 0))
+    (property "Reference" "IC_2" (id 0) (at 330.835 74.295 0))
     (property "Value" "SiT2024BA-S2-33E-8.000000G" (id 1) (at 330.835 76.835 0))
     (property "Footprint" "Libreria_componenti_footprint:SOT95P280X145-5N" (id 2) (at 316.865 81.915 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -5546,7 +5546,7 @@
   (symbol (lib_id "Libreria_componenti:SN74LVC1G125DCKR") (at 304.165 128.27 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid e6367b0f-ad1b-4084-86e1-5df88bd77834)
-    (property "Reference" "IC_2" (id 0) (at 316.865 121.285 0))
+    (property "Reference" "IC_3" (id 0) (at 316.865 121.285 0))
     (property "Value" "SN74LVC1G125DCKR" (id 1) (at 316.865 123.825 0))
     (property "Footprint" "Libreria_componenti_footprint:SOT65P210X110-5N" (id 2) (at 304.165 128.27 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -5848,9 +5848,6 @@
     (path "/b661a401-b22b-483f-aa42-a93db5800e00"
       (reference "#PWR0122") (unit 1) (value "GND") (footprint "")
     )
-    (path "/2e4e510e-4a1a-4b96-8e55-c9f0bcdfd785"
-      (reference "A1") (unit 1) (value "Arduino_Due_Shield") (footprint "arduino-library:Arduino_Due_Shield")
-    )
     (path "/43c97b09-60c8-4d38-9787-f7da828e3980"
       (reference "C1") (unit 1) (value "0.1uF") (footprint "Capacitor_SMD:C_0805_2012Metric")
     )
@@ -5879,22 +5876,28 @@
       (reference "C9") (unit 1) (value "1nF") (footprint "Capacitor_SMD:C_0805_2012Metric")
     )
     (path "/41b8cd4c-a10e-4a5f-882d-d8e02fdcfc5a"
-      (reference "D1") (unit 1) (value "5V_LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D1") (unit 1) (value "5V") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/935bfb98-00d0-4874-b27c-8afbf508f578"
-      (reference "D2") (unit 1) (value "3V3_LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D2") (unit 1) (value "3V3") (footprint "LED_SMD:LED_0805_2012Metric")
     )
-    (path "/80c739b2-bfd7-4196-b999-8fa7f79fdf43"
-      (reference "IC1") (unit 1) (value "TLV74133PDBVR") (footprint "Libreria_componenti_footprint:SOT95P280X145-5N")
-    )
-    (path "/1f41963f-b620-49ed-9e39-222e710c0a60"
-      (reference "IC2") (unit 1) (value "LT1719IS6#TRPBF") (footprint "Libreria_componenti_footprint:SOT95P280X100-6N")
+    (path "/2e4e510e-4a1a-4b96-8e55-c9f0bcdfd785"
+      (reference "IC_0") (unit 1) (value "Arduino_Due_Shield") (footprint "arduino-library:Arduino_Due_Shield")
     )
     (path "/48194ae1-f8df-4010-bbe3-4a700fb0cf99"
       (reference "IC_1") (unit 1) (value "TDC7200PW") (footprint "Libreria_componenti_footprint:SOP65P640X120-14N")
     )
+    (path "/c6b204f7-0037-47cd-baa9-5dbf5fe1ca64"
+      (reference "IC_2") (unit 1) (value "SiT2024BA-S2-33E-8.000000G") (footprint "Libreria_componenti_footprint:SOT95P280X145-5N")
+    )
     (path "/e6367b0f-ad1b-4084-86e1-5df88bd77834"
-      (reference "IC_2") (unit 1) (value "SN74LVC1G125DCKR") (footprint "Libreria_componenti_footprint:SOT65P210X110-5N")
+      (reference "IC_3") (unit 1) (value "SN74LVC1G125DCKR") (footprint "Libreria_componenti_footprint:SOT65P210X110-5N")
+    )
+    (path "/1f41963f-b620-49ed-9e39-222e710c0a60"
+      (reference "IC_4") (unit 1) (value "LT1719IS6#TRPBF") (footprint "Libreria_componenti_footprint:SOT95P280X100-6N")
+    )
+    (path "/80c739b2-bfd7-4196-b999-8fa7f79fdf43"
+      (reference "IC_5") (unit 1) (value "TLV74133PDBVR") (footprint "Libreria_componenti_footprint:SOT95P280X145-5N")
     )
     (path "/0953ec08-2b6e-49e4-9513-dc10befe5ad7"
       (reference "J1") (unit 1) (value "CONN_LASER") (footprint "Connector_Coaxial:SMA_Molex_73251-1153_EdgeMount_Horizontal")
@@ -5943,9 +5946,6 @@
     )
     (path "/ddd621fc-f1d4-4918-a2dc-6c856382e85f"
       (reference "R3") (unit 1) (value "820") (footprint "Resistor_SMD:R_0805_2012Metric")
-    )
-    (path "/c6b204f7-0037-47cd-baa9-5dbf5fe1ca64"
-      (reference "Y1") (unit 1) (value "SiT2024BA-S2-33E-8.000000G") (footprint "Libreria_componenti_footprint:SOT95P280X145-5N")
     )
   )
 )
