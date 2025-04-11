@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP RB511VM-30TE-17
+D ROHM 30V 10mA, Diode, 2-Pin SOD-323FL RB511VM-30TE-17
+K
+F https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/104678791d62a70c3f3b75cb640f2c08.pdf
+$ENDCMP
+#
+#End Doc Library
