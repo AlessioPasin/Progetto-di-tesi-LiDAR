@@ -15,7 +15,7 @@ const byte READ = 0;
 
 //Si crea la funzione per l'invio dei dati dall'arduino al TDC:
 
-void writeTDC(byte autoIncrement,byte thisRegister, byte thisValue)
+void writeTDC(byte thisRegister, byte autoIncrement, byte thisValue)
 {
   unsigned int sendDetails = (autoIncrement << 7) | (WRITE << 6) | (thisRegister & 0x3F) ; //Si crea il byte da 8 bit per il "Command field"
   Serial.println(sendDetails, BIN);
@@ -44,13 +44,16 @@ unsigned int readTDC(byte thisRegister, byte autoIncrement, int length)
   Serial.println(command, BIN);
   SPI.transfer(command);
 
+
+
   // Legge i dati da MSB a LSB
   unsigned int value;
   for (int i = 0; i < length; i++) {
     // value = (value << 8) | SPI.transfer(0x00);
-    SPI.transfer(0x00);
+    // SPI.transfer(0x00);
     // Serial.println(value, BIN);
-    Serial.println(SPI.transfer(0x00));
+    Serial.print("Trasferito: ");
+    Serial.println(SPI.transfer(0x00), BIN);
   }
 
   digitalWrite(CS, HIGH);
@@ -72,9 +75,9 @@ void setup() {
 
   digitalWrite(38, HIGH); //Abilitiamo il TDC
   
-  Serial.println("Scrivo i registri di configurazione:");
-  writeTDC(0, 0x00, 0x40);        //Definiamo i parametri del primo registro come: 01000000 (Pag: 25 datasheet)
-  writeTDC(0, 0x01, 0x40);        //Definiamo i parametri del secondo registro come: 01000001 (Pag: 26 datasheet)
+  Serial.println("Scrivo i registri di configurazione:");       //[Registro, Autoincremento, valore]
+  writeTDC(0x00, 0, 0x40);        //Definiamo i parametri del primo registro come: 01000000 (Pag: 25 datasheet)
+  writeTDC(0x01, 0, 0x40);        //Definiamo i parametri del secondo registro come: 01000001 (Pag: 26 datasheet)
   Serial.println("Comunicazione inizializzata.");
   
   delay(1500);
@@ -87,10 +90,16 @@ void loop() {
   digitalWrite(13, LOW);
     
   Serial.println("Sto per leggere:");
-  unsigned int calibrazione = readTDC(0x1B, 1, 3);
-
-  Serial.print("Il valore della calibrazione è:");
-  Serial.println(calibrazione);
+  unsigned int calibrazione = readTDC(0x00, 1, 1);        //[Registro, Autoincremento, Lunghezza]
+  Serial.println("=====Seconda chiamata======");
+  unsigned int calibrazione2 = readTDC(0x01, 1, 1);
+  Serial.println("=====Terza chiamata======");
+  unsigned int calibrazione3 = readTDC(0x02, 1, 1);
+  Serial.println("=====Quarta chiamata======");
+  unsigned int calibrazione4 = readTDC(0x03, 1, 1);
+  
+  // Serial.print("Il valore della calibrazione è:");
+  // Serial.println(calibrazione);
   Serial.println("================================================");
   digitalWrite(13, HIGH);
 
