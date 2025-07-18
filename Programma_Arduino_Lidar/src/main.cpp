@@ -7,7 +7,7 @@ const int CS = 44;    //Pin di selezione del TDC. Viene utilizzato nella comunic
 
 const byte WRITE = 1;
 const byte READ = 0;
-
+int a = 0;
 
 //===========================================================================================================
 
@@ -50,7 +50,6 @@ unsigned int readTDC(byte thisRegister, byte autoIncrement, int length)
   unsigned int value;
   for (int i = 0; i < length; i++) {
     // value = (value << 8) | SPI.transfer(0x00);
-    // SPI.transfer(0x00);
     // Serial.println(value, BIN);
     Serial.print("Trasferito: ");
     Serial.println(SPI.transfer(0x00), BIN);
@@ -78,6 +77,8 @@ void setup() {
   Serial.println("Scrivo i registri di configurazione:");       //[Registro, Autoincremento, valore]
   writeTDC(0x00, 0, 0x40);        //Definiamo i parametri del primo registro come: 01000000 (Pag: 25 datasheet)
   writeTDC(0x01, 0, 0x40);        //Definiamo i parametri del secondo registro come: 01000001 (Pag: 26 datasheet)
+  // writeTDC(0x08, 0, 0x03);        
+  // writeTDC(0x09, 0, 0x04);        
   Serial.println("Comunicazione inizializzata.");
   
   delay(1500);
@@ -89,19 +90,39 @@ void loop() {
 
   digitalWrite(13, LOW);
     
-  Serial.println("Sto per leggere:");
+  Serial.println("=====CONFIG 1======");
   unsigned int calibrazione = readTDC(0x00, 1, 1);        //[Registro, Autoincremento, Lunghezza]
-  Serial.println("=====Seconda chiamata======");
+  Serial.println("=====CONFIG 2======");
   unsigned int calibrazione2 = readTDC(0x01, 1, 1);
-  Serial.println("=====Terza chiamata======");
+  Serial.println("=====INT_STATUS======");
   unsigned int calibrazione3 = readTDC(0x02, 1, 1);
-  Serial.println("=====Quarta chiamata======");
+  Serial.println("=====INT_MASK======");
   unsigned int calibrazione4 = readTDC(0x03, 1, 1);
+  Serial.println("=====CALIBRATION1======");
+  unsigned int calibrazione5 = readTDC(0x1B, 1, 3);
+  Serial.println("=====CALIBRATION2======");
+  unsigned int calibrazione6 = readTDC(0x1C, 1, 3);
+  Serial.println("=====STOP_MASK H======");
+  unsigned int calibrazione7 = readTDC(0x08, 1, 1);
+  Serial.println("=====STOP_MASK L======");
+  unsigned int calibrazione8 = readTDC(0x09, 1, 1);
   
-  // Serial.print("Il valore della calibrazione è:");
-  // Serial.println(calibrazione);
+
   Serial.println("================================================");
   digitalWrite(13, HIGH);
+  
+  
+  
+  // Serial.print(a);
+  // if (a == 0)
+  // {
+  //   digitalWrite(34, HIGH);
+  //   delay(100);
+  //   digitalWrite(34, LOW);
+  //   delay(100);
+  //   a++;
+  // }
+  
 
   delay(9000);
 
