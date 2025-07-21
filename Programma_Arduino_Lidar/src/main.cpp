@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <SPI.h>
+#include <math.h>
 
 //Definiamo alcune costanti che verranno utilizzate in seguito:
 
@@ -9,8 +10,32 @@ const byte WRITE = 1;
 const byte READ = 0;
 int a = 0;
 
-//===========================================================================================================
 
+
+//Definiamo dei valori pari a quelli che dovremmo ottenere dai registri del TDC. Si considerano gli esempi forniti dal datasheet:
+
+const int Calib1byte1 = 0b00000000 ;    //MSB
+const int Calib1byte2 = 0b01010010 ;
+const int Calib1byte3 = 0b10000001 ;    //LSB
+
+const int Calib2byte1 = 0b00000000 ;    //MSB
+const int Calib2byte2 = 0b00001000 ;
+const int Calib2byte3 = 0b00111110 ;    //LSB
+
+const int CalibPeriod = 10 ;    //Numero di cicli di calibrazione
+
+const int ClockFreq = 8;        //Frequenza del clock in MHz (Noi in realtà avremmo 16MHz)
+
+const int Time1byte1 = 0b00000000 ;     //MSB
+const int Time1byte2 = 0b00010000 ;
+const int Time1byte3 = 0b01001111 ;     //LSB
+
+
+
+
+
+//===========================================================================================================
+/*
 
 
 //Si crea la funzione per l'invio dei dati dall'arduino al TDC:
@@ -59,8 +84,67 @@ unsigned int readTDC(byte thisRegister, byte autoIncrement, int length)
   return value;
 }
 
-
+*/
 //===============================================================================================================
+//DUMMY FUNCTION, solo per creare la funzione di riferimento:
+
+unsigned int readTDCcalib1(int length)
+{
+  if (length < 1 || length > 3) return 0;
+  
+  // Legge i dati da MSB a LSB
+  unsigned int value;
+  value = (Calib1byte1 << 16) | (Calib1byte2 << 8) | (Calib1byte3);
+  return value;
+}
+
+unsigned int readTDCcalib2(int length)
+{
+  if (length < 1 || length > 3) return 0;
+  
+  // Legge i dati da MSB a LSB
+  unsigned int value;
+  value = (Calib2byte1 << 16) | (Calib2byte2 << 8) | (Calib2byte3);
+  return value;
+}
+
+unsigned int readTDCTime1(int length)
+{
+  if (length < 1 || length > 3) return 0;
+  
+  // Legge i dati da MSB a LSB
+  unsigned int value;
+  value = (Time1byte1 << 16) | (Time1byte2 << 8) | (Time1byte3);
+  return value;
+}
+
+
+void printDouble( double val, unsigned int precision){
+// prints val with number of decimal places determine by precision
+// NOTE: precision is 1 followed by the number of zeros for the desired number of decimial places
+// example: printDouble( 3.1415, 100); // prints 3.14 (two decimal places)
+
+   Serial.print (int(val));  //prints the int part
+    Serial.print("."); // print the decimal point
+    unsigned int frac;
+    if(val >= 0)
+      frac = (val - int(val)) * precision;
+    else
+       frac = (int(val)- val ) * precision;
+    int frac1 = frac;
+    while( frac1 /= 10 )
+        precision /= 10;
+    precision /= 10;
+    while(  precision /= 10)
+        Serial.print("0");
+
+    Serial.println(frac,DEC) ;
+} 
+
+
+
+
+
 
 
 
@@ -68,19 +152,50 @@ unsigned int readTDC(byte thisRegister, byte autoIncrement, int length)
 void setup() {
   SPI.begin();
   SPI.beginTransaction(SPISettings(14000000, MSBFIRST, SPI_MODE0));
-  Serial.begin(115200);
-
-  pinMode(CS, OUTPUT);
-
-  digitalWrite(38, HIGH); //Abilitiamo il TDC
-  
-  Serial.println("Scrivo i registri di configurazione:");       //[Registro, Autoincremento, valore]
-  writeTDC(0x00, 0, 0x40);        //Definiamo i parametri del primo registro come: 01000000 (Pag: 25 datasheet)
-  writeTDC(0x01, 0, 0x40);        //Definiamo i parametri del secondo registro come: 01000001 (Pag: 26 datasheet)
-  // writeTDC(0x08, 0, 0x03);        
-  // writeTDC(0x09, 0, 0x04);        
+  Serial.begin(115200);  
   Serial.println("Comunicazione inizializzata.");
+  pinMode(13, OUTPUT);
+
+  Serial.println("=====CALIB 1======");
+  unsigned int calibrazione1 = readTDCcalib2(3);        //[Registro, Autoincremento, Lunghezza]
+  Serial.println(calibrazione1, BIN);
+  Serial.println(calibrazione1);
   
+  Serial.println("=====CALIB 2======");
+  unsigned int calibrazione2 = readTDCcalib1(3);        //[Registro, Autoincremento, Lunghezza]
+  Serial.println(calibrazione2, BIN);
+  Serial.println(calibrazione2);
+  
+  Serial.println("=====TIME 1======");
+  unsigned int time1 = readTDCTime1(3);        //[Registro, Autoincremento, Lunghezza]
+  Serial.println(time1, BIN);
+  Serial.println(time1);
+  
+  Serial.println("================================================");   //Abbiamo costruito correttamente i valori di riferimento
+
+
+  /*=====PRIMA MODALITA' DI FUNZIONAMENTO======*/
+
+  long double calCount = (double(calibrazione2 - calibrazione1))/(CalibPeriod - 1) ;
+  printDouble(calCount,10000);
+  
+  // Serial.println(ClockFreq *pow(10.0,6.0));
+  long double normLSB = ((1.0/double((ClockFreq *pow(10,6)))) * (1.0/calCount));
+  long double normLSBnano = ((1.0/double((ClockFreq *pow(10,6)))) * (1.0/calCount)*pow(10,9));
+  printDouble(normLSBnano,100);
+  
+  double TOF1 = time1 * normLSB;
+  double TOF1nano = time1 * normLSB * pow(10,9);      //CORRETTO: Tempo espresso in nanosecondi [ns]
+  printDouble(TOF1nano,100);
+
+
+
+
+
+
+
+
+
   delay(1500);
 }
 
@@ -88,42 +203,8 @@ void setup() {
 
 void loop() {
 
-  digitalWrite(13, LOW);
-    
-  Serial.println("=====CONFIG 1======");
-  unsigned int calibrazione = readTDC(0x00, 1, 1);        //[Registro, Autoincremento, Lunghezza]
-  Serial.println("=====CONFIG 2======");
-  unsigned int calibrazione2 = readTDC(0x01, 1, 1);
-  Serial.println("=====INT_STATUS======");
-  unsigned int calibrazione3 = readTDC(0x02, 1, 1);
-  Serial.println("=====INT_MASK======");
-  unsigned int calibrazione4 = readTDC(0x03, 1, 1);
-  Serial.println("=====CALIBRATION1======");
-  unsigned int calibrazione5 = readTDC(0x1B, 1, 3);
-  Serial.println("=====CALIBRATION2======");
-  unsigned int calibrazione6 = readTDC(0x1C, 1, 3);
-  Serial.println("=====STOP_MASK H======");
-  unsigned int calibrazione7 = readTDC(0x08, 1, 1);
-  Serial.println("=====STOP_MASK L======");
-  unsigned int calibrazione8 = readTDC(0x09, 1, 1);
-  
-
-  Serial.println("================================================");
   digitalWrite(13, HIGH);
-  
-  
-  
-  // Serial.print(a);
-  // if (a == 0)
-  // {
-  //   digitalWrite(34, HIGH);
-  //   delay(100);
-  //   digitalWrite(34, LOW);
-  //   delay(100);
-  //   a++;
-  // }
-  
-
-  delay(9000);
-
+  delay(1000);
+  digitalWrite(13, LOW);
+  delay(1000);
 }
