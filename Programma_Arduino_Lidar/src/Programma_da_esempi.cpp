@@ -4,17 +4,9 @@
 
 //Definiamo alcune costanti che verranno utilizzate in seguito:
 
-const int CS = 44;    //Pin di selezione del TDC. Viene utilizzato nella comunicazione SPI
-
-const byte WRITE = 1;
-const byte READ = 0;
-
 const double velLuce = 299792458.0 ; //Velocità espressa in m/s
 
-
-
 //Definiamo dei valori pari a quelli che dovremmo ottenere dai registri del TDC. Si considerano gli esempi forniti dal datasheet:
-
 
 int Calib1byte[3] = {0b00000000, 0b00001000, 0b00111110} ;    //LSB
 
@@ -40,61 +32,6 @@ const int CalibPeriod = 10 ;    //Numero di cicli di calibrazione
 const int ClockFreq = 8;        //Frequenza del clock in MHz (Noi in realtà avremmo 16MHz)
 
 
-
-
-
-
-//===========================================================================================================
-/*
-
-
-//Si crea la funzione per l'invio dei dati dall'arduino al TDC:
-
-void writeTDC(byte thisRegister, byte autoIncrement, byte thisValue)
-{
-  unsigned int sendDetails = (autoIncrement << 7) | (WRITE << 6) | (thisRegister & 0x3F) ; //Si crea il byte da 8 bit per il "Command field"
-  Serial.println(sendDetails, BIN);
-  
-  digitalWrite(CS, LOW);              //Si inizializza la fase di scrittura al dispositivo
-
-  SPI.transfer(sendDetails);          //Si inviano le specifiche della comunicazione
-  SPI.transfer(thisValue);            //Si invia il valore da inserire nel registro
-  
-  digitalWrite(CS, HIGH);             //Si termina la fase di scrittura al dispositivo
-}
-
-
-
-//Si crea la funzione per la lettura dei dati con autoincremento dal TDC all'Arduino:
-
-
-unsigned int readTDC(byte thisRegister, byte autoIncrement, int length)
-{
-  if (length < 1 || length > 3) return 0;
-
-  digitalWrite(CS, LOW);
-
-  // Comando: [Auto-Inc][R/W][Addr(6 bit)]
-  unsigned int command = (autoIncrement << 7) | (READ << 6) | (thisRegister & 0x3F);
-  Serial.println(command, BIN);
-  SPI.transfer(command);
-
-
-
-  // Legge i dati da MSB a LSB
-  unsigned int value;
-  for (int i = 0; i < length; i++) {
-    // value = (value << 8) | SPI.transfer(0x00);
-    // Serial.println(value, BIN);
-    Serial.print("Trasferito: ");
-    Serial.println(SPI.transfer(0x00), BIN);
-  }
-
-  digitalWrite(CS, HIGH);
-  return value;
-}
-
-*/
 //===============================================================================================================
 //DUMMY FUNCTIONs, solo per creare la funzione di riferimento:
 
@@ -175,7 +112,7 @@ void setup() {
   
   double TOF1 = time1 * normLSB;
   double TOF1nano = time1 * normLSB * pow(10,9);      //CORRETTO: Tempo espresso in nanosecondi [ns]
-  Serial.print("TOF1nano [ns]:");
+  Serial.print("TOF1nano [us]:");
   printDouble(TOF1nano,100);
   
   double distanza = (velLuce * TOF1)/2 ; 
@@ -216,7 +153,7 @@ void setup() {
 
 
 
-  /*=====PRIMA MODALITA' DI FUNZIONAMENTO======*/
+  /*=====SECONDA MODALITA' DI FUNZIONAMENTO======*/
 
   long double calCount2 = (double(calibrazione22 - calibrazione12))/(CalibPeriod - 1) ;
   Serial.print("CalCount2:");

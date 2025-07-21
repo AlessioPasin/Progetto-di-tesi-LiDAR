@@ -20,7 +20,7 @@ int a = 0;
 
 void writeTDC(byte thisRegister, byte autoIncrement, byte thisValue)
 {
-  unsigned int sendDetails = (autoIncrement << 7) | (WRITE << 6) | (thisRegister & 0x3F) ; //Si crea il byte da 8 bit per il "Command field"
+  unsigned int sendDetails = (autoIncrement << 7) | (WRITE << 6) | (thisRegister) ; //Si crea il byte da 8 bit per il "Command field"
   Serial.println(sendDetails, BIN);
   
   digitalWrite(CS, LOW);              //Si inizializza la fase di scrittura al dispositivo
@@ -43,17 +43,16 @@ unsigned int readTDC(byte thisRegister, byte autoIncrement, int length)
   digitalWrite(CS, LOW);
 
   // Comando: [Auto-Inc][R/W][Addr(6 bit)]
-  unsigned int command = (autoIncrement << 7) | (READ << 6) | (thisRegister & 0x3F);
+  unsigned int command = (autoIncrement << 7) | (READ << 6) | (thisRegister);
   Serial.println(command, BIN);
   SPI.transfer(command);
 
 
-
   // Legge i dati da MSB a LSB
-  unsigned int value;
+  unsigned int value = 0b000000000000000000000000;
   for (int i = 0; i < length; i++) {
-    // value = (value << 8) | SPI.transfer(0x00);
-    // Serial.println(value, BIN);
+    value = (value << 8) | SPI.transfer(0x00);
+    Serial.println(value, BIN);
     Serial.print("Trasferito: ");
     Serial.println(SPI.transfer(0x00), BIN);
   }
