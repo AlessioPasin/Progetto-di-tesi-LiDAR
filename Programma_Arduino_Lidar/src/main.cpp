@@ -13,7 +13,14 @@ const int ARD_V_REF = DAC0;       //Pin di generazione della tensione di riferim
 const int WRITE = 1;
 const int READ = 0;
 
+int mod_misurazione = '0';    // Permette di avviare la modalità di misurazione del dispositivo
+int s = 0;                    // Variabile per la lettura dei registri di configurazione
 
+const int CalibPeriod = 10 ;    //Numero di cicli di calibrazione
+
+const int ClockFreq = 16;        //Frequenza del clock in MHz (Noi in realtà avremmo 16MHz)
+
+const double velLuce = 299792458.0 ; //Velocità espressa in m/s
 
 //===========================================================================================================
 
@@ -60,6 +67,26 @@ unsigned int readTDC(byte thisRegister, byte autoIncrement, int length)   //Si c
 }
 
 
+void printDouble( double val, unsigned int precision){  //Funzione di stampa dei valori double
+
+   Serial.print (int(val));  //prints the int part
+    Serial.print("."); // print the decimal point
+    unsigned int frac;
+    if(val >= 0)
+      frac = (val - int(val)) * precision;
+    else
+       frac = (int(val)- val ) * precision;
+    int frac1 = frac;
+    while( frac1 /= 10 )
+        precision /= 10;
+    precision /= 10;
+    while(  precision /= 10)
+        Serial.print("0");
+
+    Serial.println(frac,DEC) ;
+} 
+
+
 //===============================================================================================================
 
 
@@ -83,13 +110,13 @@ void setup() {
 
 
 
-  digitalWrite(TDC_EN, HIGH); //Abilitiamo il TDC
-  digitalWrite(ARD_BUFF_EN, HIGH); //Abilitiamo il TDC
+  digitalWrite(TDC_EN, HIGH);             //Abilitiamo il TDC
+  digitalWrite(ARD_BUFF_EN, LOW);        //Abilitiamo il BUFFER
 
 
   
   Serial.println("Scrivo i registri di configurazione:");       //[Registro, Autoincremento, valore]
-  writeTDC(0x00, 0, 0x40);        //Definiamo i parametri del primo registro come: 01000000 (Pag: 25 datasheet)
+  writeTDC(0x00, 0, 0xC1);        //Definiamo i parametri del primo registro come: 01000000 (Pag: 25 datasheet)
   writeTDC(0x01, 0, 0x40);        //Definiamo i parametri del secondo registro come: 01000001 (Pag: 26 datasheet)
   // writeTDC(0x08, 0, 0x03);        
   // writeTDC(0x09, 0, 0x04);        
@@ -101,45 +128,122 @@ void setup() {
 
 void loop() {
 
-  digitalWrite(13, LOW);
+  if(s == 0){
     
-  Serial.println("=====CONFIG 1======");
-  int calibrazione = readTDC(0x00, 1, 1);        //[Registro, Autoincremento, Lunghezza]
-  Serial.print("Valore della configurazione 1:");
-  Serial.println(calibrazione, BIN);
+    Serial.println("=====CONFIG 1======");
+    int config1 = readTDC(0x00, 1, 1);        //[Registro, Autoincremento, Lunghezza]
+    Serial.print("Valore della configurazione 1:");
+    Serial.println(config1, BIN);
+    
+    
+    Serial.println("=====CONFIG 2======");
+    int config2 = readTDC(0x01, 1, 1);
+    Serial.print("Valore della configurazione 2:");
+    Serial.println(config2, BIN);
+    
+    
+    Serial.println("=====INT_STATUS======");
+    unsigned int intStatus = readTDC(0x02, 1, 1);
+    Serial.print("Valore dell'INT status:");
+    Serial.println(intStatus, BIN);
+    
+    
+    Serial.println("=====INT_MASK======");
+    unsigned int intMask = readTDC(0x03, 1, 1);
+    Serial.print("Valore dell'INT mask:");
+    Serial.println(intMask, BIN);
+    
+    s++;
+  }
   
   
-  Serial.println("=====CONFIG 2======");
-  int calibrazione2 = readTDC(0x01, 1, 1);
-  Serial.print("Valore della configurazione 2:");
-  Serial.println(calibrazione2, BIN);
+  digitalWrite(13, LOW);
+  analogWrite(ARD_V_REF, 15);    //Impostiamo una tensione di riferimento da 0.1V
+  mod_misurazione=Serial.read();                  //Acquisiamo il comando di avvio misurazione da tastiera. Premere 0 = Nessuna misurazione. Premere 1 = Avvio misurazione
+  
+  if (mod_misurazione == '1')         //Entriamo nel loop per effettuare la misurazione
+  {
+    Serial.println("<ESEGUO LA MISURAZIONE>");
+    digitalWrite(TDC_START, HIGH);
+    delay(1);
+    digitalWrite(TDC_START, LOW);
+    delay(1);
+  }
   
   
-  Serial.println("=====INT_STATUS======");
-  unsigned int calibrazione3 = readTDC(0x02, 1, 1);
-  Serial.print("Valore dell'INT status:");
-  Serial.println(calibrazione3, BIN);
-  
-  
-  Serial.println("=====INT_MASK======");
-  unsigned int calibrazione4 = readTDC(0x03, 1, 1);
-  Serial.print("Valore dell'INT mask:");
-  Serial.println(calibrazione4, BIN);
-
-
-  // Serial.println("=====CALIBRATION1======");
-  // unsigned int calibrazione5 = readTDC(0x1B, 1, 3);
-  // Serial.println(calibrazione5, BIN);
-  // Serial.println("=====CALIBRATION2======");
-  // unsigned int calibrazione6 = readTDC(0x1C, 1, 3);
-  // Serial.println("=====STOP_MASK H======");
-  // unsigned int calibrazione7 = readTDC(0x08, 1, 1);
-  // Serial.println("=====STOP_MASK L======");
-  // unsigned int calibrazione8 = readTDC(0x09, 1, 1);
-  
-
-  Serial.println("================================================");
+  delay(500);
   digitalWrite(13, HIGH);
-  delay(9000);
+  
+  
+  Serial.println("=====CALIBRATION1======");
+  unsigned int calib1 = readTDC(0x1B, 1, 3);
+  Serial.print("Valore del calibration 1:");
+  Serial.println(calib1, BIN);
+  
+  Serial.println("=====CALIBRATION2======");
+  unsigned int calib2 = readTDC(0x1C, 1, 3);
+  Serial.print("Valore del calibration 2:");
+  Serial.println(calib2, BIN);
+  
+  
+  
+  Serial.println("=====TIME 1======");
+  unsigned int time1 = readTDC(0x10, 1, 3);
+  Serial.print("Valore del registro TIME 1:");
+  Serial.println(time1, BIN);
+  
+  Serial.println("=====CLOCK COUNT 1======");
+  unsigned int clockCount1 = readTDC(0x11, 1, 3);
+  Serial.print("Valore del registro CLOCK COUNT 1:");
+  Serial.println(clockCount1, BIN);
+  
+  
+  
+  Serial.println("=====TIME 2======");
+  unsigned int time2 = readTDC(0x12, 1, 3);
+  Serial.print("Valore del registro TIME 2:");
+  Serial.println(time2, BIN);
+  
+  Serial.println("=====CLOCK COUNT 2======");
+  unsigned int clockCount2 = readTDC(0x13, 1, 3);
+  Serial.print("Valore del registro CLOCK COUNT 2:");
+  Serial.println(clockCount2, BIN);
+  
+  
+  if (mod_misurazione == 1)
+  {
+    
+    long double calCount = (double(calib2 - calib2))/(CalibPeriod - 1) ;
+    Serial.print("CalCount1:");
+    printDouble(calCount,10000);
+    
+    // Serial.println(ClockFreq *pow(10.0,6.0));
+    long double normLSB = ((1.0/double((ClockFreq *pow(10,6)))) * (1.0/calCount));
+    long double normLSBnano = ((1.0/double((ClockFreq *pow(10,6)))) * (1.0/calCount)*pow(10,9));
+    Serial.print("normLSBnano1:");
+    printDouble(normLSBnano,100);
+    
+    double TOF1 = time1 * normLSB;
+    double TOF1nano = time1 * normLSB * pow(10,9);      //CORRETTO: Tempo espresso in nanosecondi [ns]
+    Serial.print("TOF1nano [us]:");
+    printDouble(TOF1nano,100);
+    
+    double distanza = (velLuce * TOF1)/2 ; 
+    Serial.print("Distanza1 [m]:");
+    printDouble(distanza,100);
+    mod_misurazione = '0';    //Facciamo in modo da eseguire un unica chiamata alla misurazione
+}
 
+
+
+Serial.println("================================================");
+
+
+
+
+
+
+
+
+  delay(9000);
 }
