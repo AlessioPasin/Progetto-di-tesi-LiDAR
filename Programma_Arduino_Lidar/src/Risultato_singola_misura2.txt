@@ -1,0 +1,65 @@
+--Misurazione del cavo RG58CU --
+Cavo di lunghezza: 2mt
+
+Risultati ottenuti:
+
+Comunicazione inizializzata.
+Scrivo i registri di configurazione:
+1000000
+1000001
+=====CONFIG 1======
+10000000
+10000001
+Valore della configurazione 1:10000001
+=====CONFIG 2======
+10000001
+1000000
+Valore della configurazione 2:1000000
+=====INT_STATUS======
+10000010
+0
+Valore dell'INT status:0
+=====INT_MASK======
+10000011
+111
+Valore dell'INT mask:111
+=====CALIBRATION1======
+10011011
+0
+0
+0
+Valore del calibration 1:0
+=====CALIBRATION2======
+10011100
+0
+0
+0
+Valore del calibration 2:0
+=====TIME 1======
+10010000
+0
+0
+0
+Valore del registro TIME 1:0
+================================================
+<ESEGUO LA MISURAZIONE>
+=====CALIBRATION1======
+10011011
+0
+1000
+100011000111
+Valore del calibration 1:100011000111
+=====CALIBRATION2======
+10011100
+0
+1010111
+101011110011001
+Valore del calibration 2:101011110011001
+=====TIME 1======
+10010000
+0
+1
+100101100
+Valore del registro TIME 1:100101100
+TOF1nano [ns]:8.36
+Distanza1 [m]:1.25

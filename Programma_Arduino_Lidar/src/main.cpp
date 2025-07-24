@@ -61,7 +61,6 @@ unsigned int readTDC(byte thisRegister, byte autoIncrement, int length)   //Si c
     value = (value << 8) | SPI.transfer(0x00);
     Serial.println(value, BIN);
   }
-
   digitalWrite(CS, HIGH);
   return value;
 }
@@ -111,12 +110,12 @@ void setup() {
 
 
   digitalWrite(TDC_EN, HIGH);             //Abilitiamo il TDC
-  digitalWrite(ARD_BUFF_EN, LOW);        //Abilitiamo il BUFFER
+  digitalWrite(ARD_BUFF_EN, LOW);         //Manteniamo l'eneable a LOW per non portare l'uscita in alta impedenza
 
 
   
   Serial.println("Scrivo i registri di configurazione:");       //[Registro, Autoincremento, valore]
-  writeTDC(0x00, 0, 0xC1);        //Definiamo i parametri del primo registro come: 01000000 (Pag: 25 datasheet)
+  writeTDC(0x00, 0, 0x81);        //Definiamo i parametri del primo registro come: 01000000 (Pag: 25 datasheet)
   writeTDC(0x01, 0, 0x40);        //Definiamo i parametri del secondo registro come: 01000001 (Pag: 26 datasheet)
   // writeTDC(0x08, 0, 0x03);        
   // writeTDC(0x09, 0, 0x04);        
@@ -168,6 +167,10 @@ void loop() {
     delay(1);
     digitalWrite(TDC_START, LOW);
     delay(1);
+    // digitalWrite(TDC_START, HIGH);
+    // delay(1);
+    // digitalWrite(TDC_START, LOW);
+    // delay(13);
   }
   
   
@@ -192,40 +195,40 @@ void loop() {
   Serial.print("Valore del registro TIME 1:");
   Serial.println(time1, BIN);
   
-  Serial.println("=====CLOCK COUNT 1======");
-  unsigned int clockCount1 = readTDC(0x11, 1, 3);
-  Serial.print("Valore del registro CLOCK COUNT 1:");
-  Serial.println(clockCount1, BIN);
+  // Serial.println("=====CLOCK COUNT 1======");
+  // unsigned int clockCount1 = readTDC(0x11, 1, 3);
+  // Serial.print("Valore del registro CLOCK COUNT 1:");
+  // Serial.println(clockCount1, BIN);
   
   
   
-  Serial.println("=====TIME 2======");
-  unsigned int time2 = readTDC(0x12, 1, 3);
-  Serial.print("Valore del registro TIME 2:");
-  Serial.println(time2, BIN);
+  // Serial.println("=====TIME 2======");
+  // unsigned int time2 = readTDC(0x12, 1, 3);
+  // Serial.print("Valore del registro TIME 2:");
+  // Serial.println(time2, BIN);
   
-  Serial.println("=====CLOCK COUNT 2======");
-  unsigned int clockCount2 = readTDC(0x13, 1, 3);
-  Serial.print("Valore del registro CLOCK COUNT 2:");
-  Serial.println(clockCount2, BIN);
+  // Serial.println("=====CLOCK COUNT 2======");
+  // unsigned int clockCount2 = readTDC(0x13, 1, 3);
+  // Serial.print("Valore del registro CLOCK COUNT 2:");
+  // Serial.println(clockCount2, BIN);
   
   
-  if (mod_misurazione == 1)
+  if (mod_misurazione == '1')
   {
     
-    long double calCount = (double(calib2 - calib2))/(CalibPeriod - 1) ;
-    Serial.print("CalCount1:");
-    printDouble(calCount,10000);
+    long double calCount = (double(calib2 - calib1))/(CalibPeriod - 1) ;
+    // Serial.print("CalCount1:");
+    // printDouble(calCount,10000);
     
     // Serial.println(ClockFreq *pow(10.0,6.0));
     long double normLSB = ((1.0/double((ClockFreq *pow(10,6)))) * (1.0/calCount));
-    long double normLSBnano = ((1.0/double((ClockFreq *pow(10,6)))) * (1.0/calCount)*pow(10,9));
-    Serial.print("normLSBnano1:");
-    printDouble(normLSBnano,100);
+    // long double normLSBnano = ((1.0/double((ClockFreq *pow(10,6)))) * (1.0/calCount)*pow(10,9));
+    // Serial.print("normLSBnano1:");
+    // printDouble(normLSBnano,100);
     
     double TOF1 = time1 * normLSB;
     double TOF1nano = time1 * normLSB * pow(10,9);      //CORRETTO: Tempo espresso in nanosecondi [ns]
-    Serial.print("TOF1nano [us]:");
+    Serial.print("TOF1nano [ns]:");
     printDouble(TOF1nano,100);
     
     double distanza = (velLuce * TOF1)/2 ; 
@@ -237,13 +240,5 @@ void loop() {
 
 
 Serial.println("================================================");
-
-
-
-
-
-
-
-
-  delay(9000);
+delay(9000);
 }
