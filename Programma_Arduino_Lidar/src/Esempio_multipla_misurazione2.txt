@@ -1,0 +1,113 @@
+--Misurazione del cavo RG58CU --
+Cavo di lunghezza: 2mt
+
+Risultati ottenuti:
+
+Comunicazione inizializzata.
+=====CALIBRATION1======
+0
+0
+0
+Valore del calibration 1:0
+=====CALIBRATION2======
+0
+0
+0
+Valore del calibration 2:0
+=====TIME 1======
+0
+0
+0
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+0
+0
+0
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+0
+0
+0
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+0
+0
+0
+Valore del registro CLOCK COUNT 2:0
+=====TIME 3======
+0
+0
+0
+Valore del registro TIME 2:0
+=====<MODALITA' DI MISURAZIONE: 2 >======
+Scrivo i registri di configurazione:
+<ESEGUO LA MISURAZIONE>
+0
+1000
+100011000001
+0
+1010111
+101011101110110
+0
+111
+11100001100
+0
+111101
+11110101010100
+0
+111
+11100000000
+0
+0
+0
+0
+0
+0
+normLSBnano1:0.02
+TOF1 [ns]:981250.33
+TOF2 [ns]:50.36 <---------- NON MI TORNA QUESTO VALORE
+TOF3 [ns]:50.36
+Distanza1 [m]:147085.72
+Distanza2 [m]:7.54
+================================================
+=====CALIBRATION1======
+0
+1000
+100011000001
+Valore del calibration 1:100011000001
+=====CALIBRATION2======
+0
+1010111
+101011101110110
+Valore del calibration 2:101011101110110
+=====TIME 1======
+0
+111
+11100001100
+Valore del registro TIME 1:11100001100
+1804
+=====CLOCK COUNT 1======
+0
+111101
+11110101010100
+Valore del registro CLOCK COUNT 1:11110101010100
+15700
+=====TIME 2======
+0
+111
+11100000000
+Valore del registro TIME 2:11100000000
+1792
+=====CLOCK COUNT 2======
+0
+0
+0
+Valore del registro CLOCK COUNT 2:0
+=====TIME 3======
+0
+0
+0
+Valore del registro TIME 2:0
