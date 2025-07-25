@@ -1,0 +1,1018 @@
+
+==<MOLTO PROBABILMENTE NON COMPLETA>==
+
+
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10010
+18
+=====TIME 2======
+Valore del registro TIME 2:11111011010
+2010
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:11110101100111
+15719
+=====TIME 3======
+Valore del registro TIME 2:10101000110
+1350
+PS D:\Documenti_A\Università\Corsi\Tesi\Progetto Kicad Lidar\Programma_Arduino_Lidar> pio device monitor -b 115200
+--- Terminal on COM3 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+
+Valore del registro TIME 2:0
+0
+E 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====TIME 3======
+Valore del registro TIME 2:0
+0
+E 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====TIME 3======
+Valore del registro TIME 2:0
+0
+Comunicazione inizializzata.
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====TIME 3======
+Valore del registro TIME 2:0
+0
+=====<MODALITA' DI MISURAZIONE: 2 >======
+Scrivo i registri di configurazione:
+<ESEGUO LA MISURAZIONE>
+CalCount:2240.0000
+normLSBnano:5.58
+----> Prima verifica:0.64
+----> Seconda verifica:52.50
+TOF1 [ns]:5256.41
+TOF2 [ns]:1968465.56
+TOF3 [ns]:23.82
+Distanza1 [m]:787.91
+Distanza2 [m]:295065.56
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000011
+2243
+=====CALIBRATION2======
+Valore del calibration 2:101011110000011
+22403
+=====TIME 1======
+Valore del registro TIME 1:110101011
+427
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:101010
+42
+=====TIME 2======
+Valore del registro TIME 2:100111000
+312
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:11110110000100
+15748
+=====TIME 3======
+Valore del registro TIME 2:10000010100
+1044
+PS D:\Documenti_A\Università\Corsi\Tesi\Progetto Kicad Lidar\Programma_Arduino_Lidar> pio device monitor -b 115200
+--- Terminal on COM3 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ro TIME 2:0
+0
+E 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====TIME 3======
+Valore del registro TIME 2:0
+0
+Comunicazione inizializzata.
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====TIME 3======
+Valore del registro TIME 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====TIME 3======
+Valore del registro TIME 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====TIME 3======
+Valore del registro TIME 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====TIME 3======
+Valore del registro TIME 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====TIME 3======
+Valore del registro TIME 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====TIME 3======
+Valore del registro TIME 2:0
+0
+=====<MODALITA' DI MISURAZIONE: 2 >======
+Scrivo i registri di configurazione:
+<ESEGUO LA MISURAZIONE>
+CalCount:2240.2222
+normLSBnano:5.57
+----> Prima verifica:0.63
+----> Seconda verifica:2.50
+TOF1 [ns]:256.36
+TOF2 [ns]:2962148.28
+Distanza1 [m]:38.42
+Distanza2 [m]:444014.85
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000011
+2243
+=====CALIBRATION2======
+Valore del calibration 2:101011110000101
+22405
+=====TIME 1======
+Valore del registro TIME 1:1000000110
+518
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+=====TIME 2======
+Valore del registro TIME 2:110010100
+404
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:101110010010010
+23698
+=====TIME 3======
+Valore del registro TIME 2:100100100101
+2341
+PS D:\Documenti_A\Università\Corsi\Tesi\Progetto Kicad Lidar\Programma_Arduino_Lidar> pio device monitor -b 115200
+--- Terminal on COM3 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+Comunicazione inizializzata.
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====<MODALITA' DI MISURAZIONE: 2 >======
+Scrivo i registri di configurazione:
+<ESEGUO LA MISURAZIONE>
+CalCount:2240.7777
+normLSBnano:5.57
+----> Prima verifica:0.63
+----> Seconda verifica:2.50
+TOF1 [ns]:256.35
+TOF2 [ns]:2962969.37
+Distanza1 [m]:38.42
+Distanza2 [m]:444137.93
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000010
+2242
+=====CALIBRATION2======
+Valore del calibration 2:101011110001001
+22409
+=====TIME 1======
+Valore del registro TIME 1:100000101
+261
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+=====TIME 2======
+Valore del registro TIME 2:10010011
+147
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:101110010011000
+23704
+PS D:\Documenti_A\Università\Corsi\Tesi\Progetto Kicad Lidar\Programma_Arduino_Lidar> pio device monitor -b 115200
+--- Terminal on COM3 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+l registro CLOCK COUNT 2:0
+0
+T 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+T 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+Comunicazione inizializzata.
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====<MODALITA' DI MISURAZIONE: 2 >======
+Scrivo i registri di configurazione:
+<ESEGUO LA MISURAZIONE>
+CalCount:2239.8888
+normLSBnano:5.58
+----> Prima verifica:0.63
+----> Seconda verifica:2.50
+TOF1 [ns]:256.36
+TOF2 [ns]:3962914.16
+Distanza1 [m]:38.42
+Distanza2 [m]:594025.88
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000010
+2242
+=====CALIBRATION2======
+Valore del calibration 2:101011110000001
+22401
+=====TIME 1======
+Valore del registro TIME 1:111010100
+468
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+=====TIME 2======
+Valore del registro TIME 2:101100010
+354
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:111101111011000
+31704
+PS D:\Documenti_A\Università\Corsi\Tesi\Progetto Kicad Lidar\Programma_Arduino_Lidar> pio device monitor -b 115200
+--- Terminal on COM3 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+Comunicazione inizializzata.
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====<MODALITA' DI MISURAZIONE: 2 >======
+Scrivo i registri di configurazione:
+<ESEGUO LA MISURAZIONE>
+CalCount:2240.5555
+normLSBnano:5.57
+----> Prima verifica:0.63
+----> Seconda verifica:2.50
+TOF1 [ns]:256.36
+TOF2 [ns]:4963049.51
+Distanza1 [m]:38.42
+Distanza2 [m]:743942.40
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000010
+2242
+=====CALIBRATION2======
+Valore del calibration 2:101011110000111
+22407
+=====TIME 1======
+Valore del registro TIME 1:101111110
+382
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+=====TIME 2======
+Valore del registro TIME 2:100001100
+268
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:1001101100011001
+39705
+PS D:\Documenti_A\Università\Corsi\Tesi\Progetto Kicad Lidar\Programma_Arduino_Lidar> pio device monitor -b 115200
+--- Terminal on COM3 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+Comunicazione inizializzata.
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====<MODALITA' DI MISURAZIONE: 2 >======
+Scrivo i registri di configurazione:
+<ESEGUO LA MISURAZIONE>
+CalCount:2241.7777
+normLSBnano:5.57
+----> Prima verifica:0.63
+----> Seconda verifica:2.50
+TOF1 [ns]:256.35
+TOF2 [ns]:4962691.22
+Distanza1 [m]:38.42
+Distanza2 [m]:743888.70
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000100
+2244
+=====CALIBRATION2======
+Valore del calibration 2:101011110010100
+22420
+=====TIME 1======
+Valore del registro TIME 1:100101101
+301
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+=====TIME 2======
+Valore del registro TIME 2:10111011
+187
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:1001101100010110
+39702
+PS D:\Documenti_A\Università\Corsi\Tesi\Progetto Kicad Lidar\Programma_Arduino_Lidar> pio device monitor -b 115200
+--- Terminal on COM3 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+Comunicazione inizializzata.
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====<MODALITA' DI MISURAZIONE: 2 >======
+Scrivo i registri di configurazione:
+<ESEGUO LA MISURAZIONE>
+CalCount:2239.8888
+normLSBnano:5.58
+----> Prima verifica:-11.87
+----> Seconda verifica:3.75
+TOF1 [ns]:256.29
+TOF2 [ns]:5963124.44
+Distanza1 [m]:38.41
+Distanza2 [m]:893849.86
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000001
+2241
+=====CALIBRATION2======
+Valore del calibration 2:101011110000000
+22400
+=====TIME 1======
+Valore del registro TIME 1:10010011
+147
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:11
+3
+=====TIME 2======
+Valore del registro TIME 2:100011100010
+2274
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:1011101001011001
+47705
+PS D:\Documenti_A\Università\Corsi\Tesi\Progetto Kicad Lidar\Programma_Arduino_Lidar> pio device monitor -b 115200
+--- Terminal on COM3 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+Comunicazione inizializzata.
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====<MODALITA' DI MISURAZIONE: 2 >======
+Scrivo i registri di configurazione:
+<ESEGUO LA MISURAZIONE>
+CalCount:2239.7777
+normLSBnano:5.58
+----> Prima verifica:0.63
+----> Seconda verifica:2.50
+TOF1 [ns]:256.36
+TOF2 [ns]:103.24
+Distanza1 [m]:38.42
+Distanza2 [m]:15.47
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000001
+2241
+=====CALIBRATION2======
+Valore del calibration 2:101011101111111
+22399
+=====TIME 1======
+Valore del registro TIME 1:11100111010
+1850
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+=====TIME 2======
+Valore del registro TIME 2:11011001000
+1736
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+PS D:\Documenti_A\Università\Corsi\Tesi\Progetto Kicad Lidar\Programma_Arduino_Lidar> pio device monitor -b 115200
+--- Terminal on COM3 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+==CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+T 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+Comunicazione inizializzata.
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====<MODALITA' DI MISURAZIONE: 2 >======
+Scrivo i registri di configurazione:
+<ESEGUO LA MISURAZIONE>
+CalCount:2240.3333
+normLSBnano:5.57
+----> Prima verifica:0.63
+----> Seconda verifica:2.50
+TOF1 [ns]:256.36
+TOF2 [ns]:33.36
+Distanza1 [m]:38.42
+Distanza2 [m]:5.00
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000011
+2243
+=====CALIBRATION2======
+Valore del calibration 2:101011110000110
+22406
+=====TIME 1======
+Valore del registro TIME 1:1001010110
+598
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+TOF1 [ns]:256.36
+TOF2 [ns]:33.36
+Distanza1 [m]:38.42
+Distanza2 [m]:5.00
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000011
+2243
+=====CALIBRATION2======
+Valore del calibration 2:101011110000110
+22406
+=====TIME 1======
+Valore del registro TIME 1:1001010110
+598
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+Distanza2 [m]:5.00
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000011
+2243
+=====CALIBRATION2======
+Valore del calibration 2:101011110000110
+22406
+=====TIME 1======
+Valore del registro TIME 1:1001010110
+598
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+=====CALIBRATION1======
+Valore del calibration 1:100011000011
+2243
+=====CALIBRATION2======
+Valore del calibration 2:101011110000110
+22406
+=====TIME 1======
+Valore del registro TIME 1:1001010110
+598
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+2243
+=====CALIBRATION2======
+Valore del calibration 2:101011110000110
+22406
+=====TIME 1======
+Valore del registro TIME 1:1001010110
+598
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+=====TIME 1======
+Valore del registro TIME 1:1001010110
+598
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+598
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+Valore del registro CLOCK COUNT 1:10
+2
+2
+=====TIME 2======
+Valore del registro TIME 2:111100100
+484
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+PS D:\Documenti_A\Università\Corsi\Tesi\Progetto Kicad Lidar\Programma_Arduino_Lidar> pio device monitor -b 115200
+--- Terminal on COM3 | 115200 8-N-1
+--- Available filters and text transformations: colorize, debug, default, direct, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+one registro INT STATUS:0
+====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====<INT STATUS>======
+Configurazione registro INT STATUS:0
+Comunicazione inizializzata.
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====<INT STATUS>======
+Configurazione registro INT STATUS:0
+=====CALIBRATION1======
+Valore del calibration 1:0
+0
+=====CALIBRATION2======
+Valore del calibration 2:0
+0
+=====TIME 1======
+Valore del registro TIME 1:0
+0
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:0
+0
+=====TIME 2======
+Valore del registro TIME 2:0
+0
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====<INT STATUS>======
+Configurazione registro INT STATUS:0
+=====<MODALITA' DI MISURAZIONE: 2 >======
+Scrivo i registri di configurazione:
+<ESEGUO LA MISURAZIONE>
+CalCount:2239.3333
+normLSBnano:5.58
+----> Prima verifica:0.65
+----> Seconda verifica:2.50
+TOF1 [ns]:256.58
+TOF2 [ns]:31.65
+Distanza1 [m]:38.46
+Distanza2 [m]:4.74
+TOF1 [ns]:256.58
+TOF2 [ns]:31.65
+Distanza1 [m]:38.46
+Distanza2 [m]:4.74
+TOF2 [ns]:31.65
+Distanza1 [m]:38.46
+Distanza2 [m]:4.74
+Distanza2 [m]:4.74
+================================================
+=====CALIBRATION1======
+Valore del calibration 1:100011000010
+2242
+=====CALIBRATION2======
+Valore del calibration 2:101011101111100
+22396
+2242
+=====CALIBRATION2======
+Valore del calibration 2:101011101111100
+22396
+=====CALIBRATION2======
+Valore del calibration 2:101011101111100
+22396
+Valore del calibration 2:101011101111100
+22396
+22396
+=====TIME 1======
+Valore del registro TIME 1:1000110111
+567
+=====CLOCK COUNT 1======
+Valore del registro CLOCK COUNT 1:10
+2
+=====TIME 2======
+Valore del registro TIME 2:111000001
+449
+=====CLOCK COUNT 2======
+Valore del registro CLOCK COUNT 2:0
+0
+=====<INT STATUS>======
+Configurazione registro INT STATUS:11101

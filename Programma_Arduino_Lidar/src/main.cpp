@@ -15,7 +15,7 @@ const int WRITE = 1;
 const int READ = 0;
 
 const int CalibPeriod = 10 ;    //Numero di cicli di calibrazione
-const int ClockFreq = 16;        //Frequenza del clock in MHz (Noi in realtà avremmo 16MHz)
+const int ClockFreq = 8;        //Frequenza del clock in MHz (Noi in realtà avremmo 16MHz)
 const double velLuce = 299792458.0 ; //Velocità espressa in m/s
 
 int s = 0;                    // Variabile per la lettura dei registri di configurazione
@@ -32,13 +32,18 @@ long double calCount;
 long double normLSB;
 double TOF1;
 double TOF2;
-double TOF3;
+// double TOF3;
 double TOF1nano;
 double TOF2nano;
-double TOF3nano;
+// double TOF3nano;
 double distanza1;
 double distanza2;
 long double normLSBnano;
+
+
+
+double boh;
+double boh2;
 //===========================================================================================================
 
 
@@ -175,8 +180,8 @@ void loop() { //Costruiamo un programma basato sulla funzione switch-case: [0]=S
   Serial.print("normLSBnano1:");
   printDouble(normLSBnano,100);
   
-  TOF1 = time1 * normLSB;
-  TOF1nano = time1 * normLSB * pow(10,9);
+  TOF1 = int(time1) * normLSB;
+  TOF1nano = TOF1 * pow(10,9);
   Serial.print("TOF1 [ns]:");
   printDouble(TOF1nano,100);
   
@@ -210,7 +215,7 @@ void loop() { //Costruiamo un programma basato sulla funzione switch-case: [0]=S
   digitalWrite(TDC_START, HIGH);
   delay(1);
   digitalWrite(TDC_START, LOW);  
-  delay(1);
+  delay(10);
   digitalWrite(TDC_START, HIGH);
   delay(1);
   digitalWrite(TDC_START, LOW);  
@@ -234,19 +239,19 @@ void loop() { //Costruiamo un programma basato sulla funzione switch-case: [0]=S
   Serial.print("normLSBnano:");
   printDouble(normLSBnano,100);
 
-  TOF2 = normLSB*(time1-time2 ) + (Clockcount1 * ((1.0/double((ClockFreq *pow(10,6))))));
-  TOF1 = normLSB*(time1-time3 ) + (Clockcount2 * ((1.0/double((ClockFreq *pow(10,6))))));
-  TOF3 = time1 * normLSB;
+
+  TOF1 = normLSB*(int(time1)-int(time2) ) + (Clockcount1 * ((1.0/double((ClockFreq *pow(10,6))))));
+  TOF2 = normLSB*(int(time1)-int(time3) ) + (Clockcount2 * ((1.0/double((ClockFreq *pow(10,6))))));
 
   TOF1nano = (TOF1 * pow(10,9));      //CORRETTO: Tempo espresso in nanosecondi [ns]
   TOF2nano = (TOF2 * pow(10,9));      //CORRETTO: Tempo espresso in nanosecondi [ns]
-  TOF3nano = (TOF3 * pow(10,9));      //CORRETTO: Tempo espresso in nanosecondi [ns]
+  // TOF3nano = (TOF3 * pow(10,9));      //CORRETTO: Tempo espresso in nanosecondi [ns]
   Serial.print("TOF1 [ns]:");
   printDouble(TOF1nano,100);
   Serial.print("TOF2 [ns]:");
   printDouble(TOF2nano,100);
-  Serial.print("TOF3 [ns]:");
-  printDouble(TOF3nano,100);
+  // Serial.print("TOF3 [ns]:");
+  // printDouble(TOF3nano,100);
   
   distanza1 = (velLuce * TOF1)/2 ;
   distanza2 = (velLuce * TOF2)/2 ;
@@ -270,11 +275,13 @@ void loop() { //Costruiamo un programma basato sulla funzione switch-case: [0]=S
   calib1 = readTDC(0x1B, 1, 3);
   Serial.print("Valore del calibration 1:");
   Serial.println(calib1, BIN);
+  Serial.println(calib1, DEC);
   
   Serial.println("=====CALIBRATION2======");
   calib2 = readTDC(0x1C, 1, 3);
   Serial.print("Valore del calibration 2:");
   Serial.println(calib2, BIN);
+  Serial.println(calib2, DEC);
   
   Serial.println("=====TIME 1======");
   time1 = readTDC(0x10, 1, 3);
@@ -298,11 +305,18 @@ void loop() { //Costruiamo un programma basato sulla funzione switch-case: [0]=S
   Clockcount2 = readTDC(0x13, 1, 3);
   Serial.print("Valore del registro CLOCK COUNT 2:");
   Serial.println(Clockcount2, BIN);
+  Serial.println(Clockcount2, DEC);
 
-  Serial.println("=====TIME 3======");
-  time3 = readTDC(0x14, 1, 3);
-  Serial.print("Valore del registro TIME 2:");
-  Serial.println(time3, BIN);
+  // Serial.println("=====TIME 3======");
+  // time3 = readTDC(0x14, 1, 3);
+  // Serial.print("Valore del registro TIME 2:");
+  // Serial.println(time3, BIN);
+  // Serial.println(time3, DEC);
+  
+  // Serial.println("=====<INT STATUS>======");
+  // time3 = readTDC(0x02, 1, 1);
+  // Serial.print("Configurazione registro INT STATUS:");
+  // Serial.println(time3, BIN);
 
 
   digitalWrite(TDC_EN, LOW);               //Abilitiamo il TDC
@@ -310,5 +324,5 @@ void loop() { //Costruiamo un programma basato sulla funzione switch-case: [0]=S
   break;
 }
 
-delay(9000);
+delay(4000);
 }
